@@ -1,4 +1,4 @@
-# Image Captioning AI — Project Blueprint (No Code)
+# Image Captioning AI — Project Blueprint 
 
 This repository contains a **design-first blueprint** for building an end-to-end image captioning system from scratch for learning.
 
@@ -98,6 +98,37 @@ image-captioning/
 - **training/**: learning workflow contracts, optimization strategy, checkpoint policy.
 - **evaluation/**: metric definitions, benchmark protocol, reproducible reporting rules.
 - **inference/**: runtime caption generation flow, decoding choices, stopping logic.
+
+## 2) Development Roadmap
+
+### Phase 1: Environment & Data Preparation
+- [ ] Set up Python environment (requirements.txt/environment.yml).
+- [ ] Implement data downloading scripts for COCO/Flickr.
+- [ ] Build the preprocessing pipeline (Image resizing, Text normalization).
+- [ ] Implement the Tokenizer.
+
+### Phase 2: Model Architecture
+- [ ] Implement the Encoder (typically a pre-trained CNN/Transformer).
+- [ ] Implement the Decoder (RNN/Transformer-based).
+- [ ] Define the Fusion layer/Attention mechanism.
+
+### Phase 3: Training & Evaluation
+- [ ] Write the training loops with logging (Tensorboard/Weights & Biases).
+- [ ] Implement Loss functions (CrossEntropy, etc.).
+- [ ] Implement Evaluation metrics (BLEU, METEOR, ROUGE, CIDEr).
+
+### Phase 4: Inference & Deployment
+- [ ] Implement Greedy and Beam Search decoding.
+- [ ] Create a FastAPI/Flask application for model serving.
+- [ ] Dockerize the application.
+
+## 3) Technical Stack (Initial Selection)
+- **Deep Learning:** PyTorch / TensorFlow
+- **Computer Vision:** OpenCV / Pillow / Torchvision
+- **NLP:** HuggingFace Tokenizers / NLTK
+- **Monitoring:** TensorBoard
+- **API:** FastAPI
+- **Containerization:** Docker
 - **utilities/**: shared concerns (device, reproducibility, I/O, experiment IDs).
 - **configuration/**: centralized hyperparameters/environment controls.
 - **notebooks/**: exploratory analysis and debugging, not production execution.

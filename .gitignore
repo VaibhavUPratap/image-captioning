@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+myenv/
+venv/
+.env/
+
+# Datasets (Large files)
+dataset/raw/
+*.zip
+*.tar
+*.gz
+
+# Model Checkpoints
+checkpoints/
+*.pth
+*.ckpt
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+__MACOSX/
+.gradio/
+
+# VS Code
+.vscode/
