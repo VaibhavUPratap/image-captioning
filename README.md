@@ -8,6 +8,10 @@
 ## 📌 Executive Summary
 **NeuralVision** is a robust, end-to-end computer vision and natural language processing pipeline designed to synthesize descriptive textual narratives from visual inputs. Utilizing a deep-seated **Encoder-Decoder architecture**, the system integrates a pre-trained **ResNet-50** convolutional neural network with a **Long Short-Term Memory (LSTM)** recurrent network to achieve state-of-the-art captioning capabilities on the Flickr8k benchmark.
 
+### 🗺️ Pipeline Visualization
+![NeuralVision Architecture Interface](assets/architecture_diagram.png)
+*Figure 1: High-level architectural data flow. Note: Current implementation utilizes an LSTM-based decoder as opposed to the Transformer variant shown above.*
+
 ---
 
 ## 🏗️ Technical Architecture
