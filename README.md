@@ -12,6 +12,8 @@
 
 ## 🏗️ Technical Architecture
 
+![Architecture Diagram](assets/architecture_diagram.png)
+
 ### 1. Visual Feature Encoding (Encoder)
 The visual processing sub-system employs a **ResNet-50** backbone, pre-trained on the ImageNet dataset, to extract high-level semantic features.
 *   **Feature Extraction**: Removal of the final fully-connected classification layer retains the global average pooling output (2048 dimensions).
