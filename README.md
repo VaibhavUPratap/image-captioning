@@ -1,103 +1,74 @@
-# Image Captioning AI — Project Blueprint 
+# Image Captioning AI 📸🤖
 
-This repository contains a **design-first blueprint** for building an end-to-end image captioning system from scratch for learning.
+An end-to-end Image Captioning system built with **PyTorch**, featuring a **CNN-LSTM** architecture, **Gradio** web interface, and comprehensive evaluation metrics.
 
-## 1) Project Folder Structure
+## ✨ Features
+- **Architecture**: ResNet-50 Encoder + LSTM Decoder.
+- **Interactive UI**: Upload images and get captions via Gradio.
+- **Robust Data Handling**: Custom Flickr8k dataset handler with automated missing-file filtering.
+- **Evaluation**: BLEU score calculation (BLEU-1 to BLEU-4) for quality assessment.
+- **Interactive Notebook**: Complete walkthrough of the entire pipeline.
 
-```text
-image-captioning/
-├── dataset/
-│   ├── raw/
-│   │   ├── coco/
-│   │   ├── flickr8k/
-│   │   └── flickr30k/
-│   ├── processed/
-│   │   ├── images/
-│   │   ├── captions/
-│   │   └── metadata/
-│   └── splits/
-│       ├── train/
-│       ├── val/
-│       └── test/
-├── models/
-│   ├── encoder/
-│   ├── decoder/
-│   ├── fusion/
-│   └── model_registry.md
-├── tokenizer/
-│   ├── vocabulary/
-│   ├── rules/
-│   └── tokenizer_spec.md
-├── preprocessing/
-│   ├── image/
-│   ├── text/
-│   └── pipeline_spec.md
-├── training/
-│   ├── loops/
-│   ├── losses/
-│   ├── optimizers/
-│   └── training_spec.md
-├── evaluation/
-│   ├── metrics/
-│   ├── benchmarks/
-│   └── evaluation_spec.md
-├── inference/
-│   ├── decoding/
-│   ├── postprocessing/
-│   └── inference_spec.md
-├── utilities/
-│   ├── io/
-│   ├── seed/
-│   ├── device/
-│   └── utilities_spec.md
-├── configuration/
-│   ├── defaults/
-│   ├── experiments/
-│   ├── environments/
-│   └── config_schema.md
-├── notebooks/
-│   ├── 01_data_exploration.ipynb
-│   ├── 02_tokenizer_analysis.ipynb
-│   ├── 03_model_debugging.ipynb
-│   └── 04_evaluation_analysis.ipynb
-├── deployment/
-│   ├── fastapi/
-│   ├── flask/
-│   ├── container/
-│   └── deployment_spec.md
-├── api/
-│   ├── contracts/
-│   ├── validation/
-│   └── api_spec.md
-├── docs/
-│   ├── README.md
-│   ├── INSTALLATION.md
-│   ├── ARCHITECTURE.md
-│   ├── DATASET_GUIDE.md
-│   ├── TRAINING_GUIDE.md
-│   ├── INFERENCE_GUIDE.md
-│   └── DEPLOYMENT_GUIDE.md
-├── tests/
-│   ├── unit/
-│   ├── integration/
-│   ├── data/
-│   └── evaluation/
-├── checkpoints/
-│   ├── experiments/
-│   └── best/
-└── logs/
-    ├── training/
-    ├── evaluation/
-    └── tensorboard/
+---
+
+## 🚀 Quick Start
+
+### 1. Setup Environment
+```bash
+python -m venv myenv
+source myenv/Scripts/activate  # Windows
+pip install -r requirements.txt
 ```
 
-- **dataset/**: data lifecycle (raw → cleaned/processed → train/val/test split metadata).
-- **models/**: architecture definitions and interface contracts between encoder/decoder.
-- **tokenizer/**: vocabulary policy and token-index mapping standards.
-- **preprocessing/**: deterministic image and caption normalization specs used by training/inference.
-- **training/**: learning workflow contracts, optimization strategy, checkpoint policy.
-- **evaluation/**: metric definitions, benchmark protocol, reproducible reporting rules.
-- **inference/**: runtime caption generation flow, decoding choices, stopping logic.
+### 2. Download Data
+Place the Flickr8k dataset in `dataset/raw/flickr8k/`:
+- `Images/` (Folder containing JPGs)
+- `Flickr8k.token.txt` (Captions file)
+
+### 3. Run Interactive UI
+Launch the Gradio web app to upload and describe images:
+```bash
+python app.py
+```
+Visit `http://127.0.0.1:7860` in your browser.
+
+---
+
+## 🏗️ Project Structure
+```text
+image-captioning/
+├── app.py                # Gradio Web Interface
+├── image_captioning.ipynb # Interactive Notebook Walkthrough
+├── training/train.py     # Main training loop
+├── evaluate.py           # BLEU score evaluation script
+├── inference.py          # Standalone prediction script
+├── dataset/
+│   └── flickr8k_handler.py # Robust data loading & cleaning
+├── models/
+│   ├── encoder/encoder.py  # ResNet-50 based Encoder
+│   ├── decoder/decoder.py  # LSTM based Decoder
+│   └── fusion/model.py     # ImageCaptioner combined model
+└── tokenizer/tokenizer.py   # Text tokenization & vocab building
+```
+
+---
+
+## 📊 Performance
+The model was trained for 5 epochs on the Flickr8k dataset using an NVIDIA RTX 3050.
+
+| Metric | Score |
+| :--- | :--- |
+| **BLEU-1** | **0.5138** |
+| **BLEU-2** | **0.3305** |
+| **BLEU-3** | **0.2067** |
+| **BLEU-4** | **0.1294** |
+
+---
+
+## 🧪 Evaluation & Inference
+- **Evaluate**: Run `python evaluate.py` to calculate BLEU scores on the test split.
+- **Inference**: Run `python inference.py path/to/image.jpg` for a single prediction.
+
 
 ## 2) Development Roadmap
 
