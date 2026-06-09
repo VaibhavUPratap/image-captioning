@@ -26,7 +26,6 @@ checkpoints/
 .DS_Store
 Thumbs.db
 __MACOSX/
-.gradio/
 
 # VS Code
 .vscode/
